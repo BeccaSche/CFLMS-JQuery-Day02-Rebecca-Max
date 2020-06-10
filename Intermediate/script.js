@@ -1,16 +1,16 @@
 var simpson = JSON.parse(simpsons)
 console.log(simpson)
 
-$(document).ready(function(){
+$(document).ready(function () {
 
 	// Creates and adds container for all characters
 	var bigbox = $("<div></div>").addClass("bigbox")
 	$("body").prepend(bigbox)
 
-	for (i = 0; i < simpson.length; i++){
+	for (i = 0; i < simpson.length; i++) {
 
 		// Creates and adds container for each character
-		smallbox = $("<div></div>").addClass("smallbox")
+		smallbox = $("<div></div>").addClass("smallbox"+i)
 		bigbox.append(smallbox)
 
 		// Creates items in each character container
@@ -18,47 +18,73 @@ $(document).ready(function(){
 		var imgsrc = $("<img>")
 		var relation = $("<p> The relation to the main character is: </p>")
 		var colorspan = $("<span>" + simpson[i].relation + "</span>")
-		var hobbies = $("<p> Hobby:" + simpson[i].hobbies + "</p>")
+		var hobbies = $("<p class='hide'> Hobby:" + simpson[i].hobbies + "</p>")
 		var favourite = $("<p> Favourite family member:" + simpson[i].hobbies + "</p>")
+
 
 		// Adds items in each container
 		relation.append(colorspan)
-		smallbox.append(name).append(imgsrc).append(relation)
+		smallbox.append(name).append(imgsrc).append(relation).append(hobbies)
 		imgsrc.attr("src", simpson[i].imgsrc)
-		
-		
 
-		$(".smallbox").on("click", function(){
-			$(this).append(simpson[i].hobbies)
 
-		})
+
+
 
 		// Check for the relation and change span color
 		var rel = simpson[i].relation
 
-		if (rel == "Parent"){
+		if (rel == "Parent") {
 			colorspan.css("color", "blue")
-		} else if (rel == "Sibling"){
+		} else if (rel == "Sibling") {
 			colorspan.css("color", "green")
-		} else if (rel == "Other"){
+		} else if (rel == "Other") {
 			colorspan.css("color", "purple")
 		} else {
 			colorspan.css("color", "red")
 		}
 
 
-
-
-
 	}
 
+
+	for ( i = 0; i < simpson.length; i++) {
+		
+		$(".smallbox"+i).on("click", function () {
+			$(this).find(".hide").removeClass("hide").addClass("show")
+		
+		})
+	}
+
+
+
+
+
 	// Change styles of containers
-	$(".bigbox").css({"display":"flex", "flex-wrap": "wrap", "justify-content": "space-around", "width" : "100%", "background-color": "grey"})
-	$(".smallbox").css({"width": "30%", "background-color":"lightgrey", "display":"flex", "justify-content":"center", "flex-direction":"column", "align-items":"center", "margin":"2% 0", "border-radius": "4vw", "box-shadow":"0.3vw 0.3vw 0.3vw 0.3vw"})
+	$(".bigbox").css({
+		"display": "flex",
+		"flex-wrap": "wrap",
+		"justify-content": "space-around",
+		"width": "100%",
+		"background-color": "grey"
+	})
+	$(".smallbox").css({
+		"width": "30%",
+		"background-color": "lightgrey",
+		"display": "flex",
+		"justify-content": "center",
+		"flex-direction": "column",
+		"align-items": "center",
+		"margin": "2% 0",
+		"border-radius": "4vw",
+		"box-shadow": "0.3vw 0.3vw 0.3vw 0.3vw"
+	})
 	$("img").css("height", "25vw")
-	$("p").css({"font-size": "2.2vw", "padding" : "3%"})
+	$("p").css({
+		"font-size": "2.2vw",
+		"padding": "3%"
 
-	});
-
-
-
+		
+	})
+	
+});
