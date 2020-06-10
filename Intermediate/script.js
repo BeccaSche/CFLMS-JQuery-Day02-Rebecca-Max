@@ -18,11 +18,20 @@ $(document).ready(function(){
 		var imgsrc = $("<img>")
 		var relation = $("<p> The relation to the main character is: </p>")
 		var colorspan = $("<span>" + simpson[i].relation + "</span>")
+		var hobbies = $("<p> Hobby:" + simpson[i].hobbies + "</p>")
+		var favourite = $("<p> Favourite family member:" + simpson[i].hobbies + "</p>")
 
 		// Adds items in each container
 		relation.append(colorspan)
 		smallbox.append(name).append(imgsrc).append(relation)
 		imgsrc.attr("src", simpson[i].imgsrc)
+		
+		
+
+		$(".smallbox").on("click", function(){
+			$(this).append(simpson[i].hobbies)
+
+		})
 
 		// Check for the relation and change span color
 		var rel = simpson[i].relation
@@ -36,6 +45,11 @@ $(document).ready(function(){
 		} else {
 			colorspan.css("color", "red")
 		}
+
+
+
+
+
 	}
 
 	// Change styles of containers
@@ -45,3 +59,6 @@ $(document).ready(function(){
 	$("p").css({"font-size": "2.2vw", "padding" : "3%"})
 
 	});
+
+
+
