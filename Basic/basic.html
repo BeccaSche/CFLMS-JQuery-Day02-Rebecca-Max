@@ -3,14 +3,40 @@
 <head>
 	<title>jQuery</title>
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<style>
+	img{
+		width: 40vw;
+	}
+	
+</style>
 </head>
 <body>
 
+	<h1 id="result"></h1>
+
+	<img id="gift" src="https://cdn.shopify.com/s/files/1/1369/2605/articles/White_Gift_Box_with_Red_Bow_PNG_Image_2048x.png?v=1511752878">
+
+	<img id="santa" src="https://juststickers.in/wp-content/uploads/2016/11/santa-claus.png">
+
+	<img id="bells" src="http://www.freepngimg.com/download/christmas_bell/1-2-christmas-bell-png-image.png">
+
+
  	<script>
     $(document).ready(function(){
-	     
-    });
+    	$("#gift").on('click', function(){
+    		$("h1").text("This is a gift");
+    	})
+
+    	$("#santa").on('click', function(){
+    		$("h1").text("This is a santa");
+    	})
+
+    	$("#bells").on('click', function(){
+    		$("h1").text("This is are bells");
+    	})
+    	     
+    }
     </script>
-	<script src="myscript.js"></script>
 </body>
 </html>

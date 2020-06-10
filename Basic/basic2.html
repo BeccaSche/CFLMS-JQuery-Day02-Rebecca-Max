@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<style>
+
+    #wrapper{
+        width: 80%;
+        background: lightgrey;
+        display: flex;
+        flex-flow:  row wrap;
+        justify-content: space-around;
+    }
+
+	img{ 
+		width: 20vw;
+	}
+	
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+    <div id="images">      
+    </div>
+
+</div>
+
+    <script>
+
+var pics = [
+    {
+        Name: "Gift",
+        Image: "https://cdn.shopify.com/s/files/1/1369/2605/articles/White_Gift_Box_with_Red_Bow_PNG_Image_2048x.png?v=1511752878"
+    },
+    {
+        Name: "Santa",
+        Image: "https://juststickers.in/wp-content/uploads/2016/11/santa-claus.png"
+    },
+    {
+        Name: "Gift",
+        Image: "https://cdn.shopify.com/s/files/1/1369/2605/articles/White_Gift_Box_with_Red_Bow_PNG_Image_2048x.png?v=1511752878"
+    }, 
+    {
+        Name: "Gift",
+        Image: "https://cdn.shopify.com/s/files/1/1369/2605/articles/White_Gift_Box_with_Red_Bow_PNG_Image_2048x.png?v=1511752878"
+    },
+    {
+        Name: "Santa",
+        Image: "https://juststickers.in/wp-content/uploads/2016/11/santa-claus.png"
+    },
+    {
+        Name: "Gift",
+        Image: "https://cdn.shopify.com/s/files/1/1369/2605/articles/White_Gift_Box_with_Red_Bow_PNG_Image_2048x.png?v=1511752878"
+    },
+    {
+        Name: "Santa",
+        Image: "https://juststickers.in/wp-content/uploads/2016/11/santa-claus.png"
+    },
+    {
+        Name: "Gift",
+        Image: "https://cdn.shopify.com/s/files/1/1369/2605/articles/White_Gift_Box_with_Red_Bow_PNG_Image_2048x.png?v=1511752878"
+    },
+    {
+        Name: "Santa",
+        Image: "https://juststickers.in/wp-content/uploads/2016/11/santa-claus.png"
+    }
+
+]
+ 
+
+    $(document).ready(function(){
+        for(var i = 0 ; i < pics.length ; i++){
+            $("#images").append(`<img src="${pics[i].Image}">`)
+
+        }
+
+
+        $("img").on('click', function(){
+            $(this).hide()
+            })
+   })
+    </script>
+</body>
+</html>
